@@ -1,29 +1,10 @@
 package com.example.nobelprizewinners.ViewModels;
-
 import android.app.Application;
-import android.app.DatePickerDialog;
-import android.os.AsyncTask;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import android.os.Handler;
-import android.widget.DatePicker;
 
 import com.example.nobelprizewinners.Adapters.NobelPrizeItem;
 import com.example.nobelprizewinners.Repository.NPRepository;

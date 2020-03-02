@@ -1,22 +1,11 @@
 package com.example.nobelprizewinners.Repository;
-
 import android.app.Application;
 import android.os.AsyncTask;
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
 import com.example.nobelprizewinners.Adapters.NobelPrizeItem;
-
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class NPRepository {
     private LiveData<List<NobelPrizeItem>> mAllRows;
