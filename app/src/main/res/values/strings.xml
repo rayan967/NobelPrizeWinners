@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NobelPrizeWinners</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category">Category</string>
+    <string name="year">Year</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="multiple_time_winners">Multiple Time Winners</string>
+    <string name="economics">Economics</string>
+    <string name="literature">Literature</string>
+    <string name="peace">Peace</string>
+    <string name="physics">Physics</string>
+    <string name="medicine">Medicine</string>
+    <string name="_1900">1900</string>
+    <string name="_2020">2020</string>
+    <string name="nobel_prize_winners">Nobel Prize Winners</string>
+    <string name="name">Name</string>
+    <string name="todo">TODO</string>
+    <string name="filter">Filter Icon</string>
+</resources>
