@@ -22,7 +22,6 @@ public class NPViewModel extends AndroidViewModel {
     public void update(Application application, HashMap<String, Boolean> categories, int min, int max, boolean multiplewins) {
         mAllRows = null;
         mRepository = new NPRepository(application, categories, min, max, multiplewins);
-        Log.d("Im called","aaaaaaaaaaaaaaaaaa");
         mAllRows = mRepository.getAllRows();
     }
 

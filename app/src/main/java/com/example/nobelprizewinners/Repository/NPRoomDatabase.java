@@ -174,7 +174,7 @@ public abstract class NPRoomDatabase extends RoomDatabase {
 
 
 
-                else {
+                else { //for multiple winners
                     List<String> unique_id = new ArrayList<>();
                     List<String> nonunique = new ArrayList<>();
 
@@ -193,8 +193,6 @@ public abstract class NPRoomDatabase extends RoomDatabase {
                                 } else
                                     unique_id.add(temp2.getString("id"));
                             }
-                        } else {
-                            //No Row Added
                         }
                     }
 
@@ -242,13 +240,13 @@ public abstract class NPRoomDatabase extends RoomDatabase {
 
             }
             catch(JSONException e){
-                NobelPrizeItem word = new NobelPrizeItem("","","");
+                NobelPrizeItem word = new NobelPrizeItem("No Data Found","","");
                 mDao.insert(word);
                 e.printStackTrace();
                 return null;
             }
             catch(Exception e) {
-                NobelPrizeItem word = new NobelPrizeItem("","","");
+                NobelPrizeItem word = new NobelPrizeItem("No Data Found","","");
                 mDao.insert(word);
                 e.printStackTrace();
                 return null;

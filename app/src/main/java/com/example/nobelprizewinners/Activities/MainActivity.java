@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
@@ -18,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.nobelprizewinners.Adapters.NobelPrizeAdapter;
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity  {
         recyclerView.setAdapter(mAdapter);
 
         final int year=Calendar.getInstance().get(Calendar.YEAR);
-
-
+        final ProgressBar pb = findViewById(R.id.progressBar);
+        pb.setVisibility(View.VISIBLE);
 
         mNPViewModel = new ViewModelProvider(MainActivity.this).get(NPViewModel.class);
 
@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity  {
         mNPViewModel.getAllRows().observe(MainActivity.this, new Observer<List<NobelPrizeItem>>() {
             @Override
             public void onChanged(@Nullable List<NobelPrizeItem> words) {
+                if (words.size() > 0) {
+                    pb.setVisibility(View.INVISIBLE);
+                }
                 mAdapter.setRows(words);
             }
         });
@@ -146,6 +149,9 @@ public class MainActivity extends AppCompatActivity  {
                                 maxyear.setText(Integer.toString(year));
                                 int min=rangeSeekBar.getSelectedMinValue();
                                 int max=rangeSeekBar.getSelectedMaxValue();
+                                if(isOnline()) {
+                                    pb.setVisibility(View.VISIBLE);
+                                }
 
 
                                 mNPViewModel = new ViewModelProvider(MainActivity.this).get(NPViewModel.class);
@@ -154,8 +160,10 @@ public class MainActivity extends AppCompatActivity  {
                                 mNPViewModel.getAllRows().observe(MainActivity.this, new Observer<List<NobelPrizeItem>>() {
                                     @Override
                                     public void onChanged(@Nullable List<NobelPrizeItem> words) {
-
                                         words=NPViewModel.modifyIfEmpty(words);
+                                        if (words.size() > 0) {
+                                            pb.setVisibility(View.INVISIBLE);
+                                        }
                                         mAdapter.setRows(words);
                                     }
                                 });
